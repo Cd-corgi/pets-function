@@ -16,7 +16,8 @@ module.exports = async(client, message, args) => {
 	//adopt a pet!
 	if(args[0] === 'adopt') {
 		let user = message.author;
-
+		
+		//if the user already have a pet the bot dont allow him-her have another pet
 		if(db_pet.has(`${user}`)) return message.reply('You already have a pet!');
 
 		let name = args.slice(1).join(" ") //name parameter
@@ -28,7 +29,7 @@ module.exports = async(client, message, args) => {
 		db_pet.set(`${user}.coins`, 0)
 	}
 	
-	//earn coins method
+	//earn xp method
 	if(args[0] === 'search') {
 		let user = message.author;
 
